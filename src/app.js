@@ -3,11 +3,10 @@ const { app, server, express } = require("./server");
 require("dotenv").config();
 const cors = require("cors");
 const morgan = require("morgan");
-const router = require("./routes");
 
 // DB connection
-const env = process.env.NODE_ENV || "development";
-require("./config/db_config.js")[env];
+// const env = process.env.NODE_ENV || "development";
+// require("./config/db_config.js")[env];
 
 
 //  parse JSON-encoded bodies and URL-encoded bodies
@@ -33,11 +32,8 @@ app.get("/", (req, res) => {
 })
 
 
-//  Requesting for imported Routes
-app.use("/api/v1", router);
-
 // Setting up listener
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "localhost";
 const BASE_URL = process.env.BASE_URL || "http://localhost:4000";
 
